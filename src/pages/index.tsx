@@ -7,9 +7,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main>
+    <main style={{
+      backgroundImage: `url(/bg.svg)`,
+      backgroundSize: 'cover',
+    }}>
       <Navbar />
       <Bio />
-    </main>
+    </main >
   )
 }

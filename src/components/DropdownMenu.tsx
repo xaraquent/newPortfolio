@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Transition } from '@headlessui/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
@@ -21,24 +22,34 @@ export default function DropdownMenu() {
                         <MenuIcon className="m-3 h-8 w-8" />
                     )}
                 </button>
-                <div className={`absolute ${isOpen ? 'block' : 'hidden'} bg-violet-900 z-10`}>
-                    <a href="#" className="block py-2 px-4 text-white flex gap-2 hover:bg-violet-500">
-                        <HomeIcon />
-                        Home
-                    </a>
-                    <a href="#" className="block py-2 px-4 text-white flex gap-2 hover:bg-violet-500">
-                        <DesignServicesIcon />
-                        Skills
-                    </a>
-                    <a href="#" className="block py-2 px-4 text-white flex gap-2 hover:bg-violet-500">
-                        <FolderSpecialIcon />
-                        Projects
-                    </a>
-                    <a href="#" className="block py-2 px-4 text-white flex gap-2 hover:bg-violet-500">
-                        <ContactPageIcon />
-                        Contact
-                    </a>
-                </div>
+                <Transition
+                    show={isOpen}
+                    enter="transition duration-300 ease-out"
+                    enterFrom="opacity-0 scale-1"
+                    enterTo="opacity-100 scale-100"
+                    leave="transition duration-200 ease-in"
+                    leaveFrom="opacity-100 scale-100"
+                    leaveTo="opacity-0 scale-1"
+                >
+                    <div className="absolute bg-violet-900 z-10">
+                        <a href="#" className="block py-3 px-8 text-white flex gap-3 hover:bg-violet-500">
+                            <HomeIcon />
+                            Home
+                        </a>
+                        <a href="#" className="block py-3 px-8 text-white flex gap-3 hover:bg-violet-500">
+                            <DesignServicesIcon />
+                            Skills
+                        </a>
+                        <a href="#" className="block py-3 px-8 text-white flex gap-3 hover:bg-violet-500">
+                            <FolderSpecialIcon />
+                            Projects
+                        </a>
+                        <a href="#" className="block py-3 px-8 text-white flex gap-3 hover:bg-violet-500">
+                            <ContactPageIcon />
+                            Contact
+                        </a>
+                    </div>
+                </Transition>
             </div>
         </div>
     );
