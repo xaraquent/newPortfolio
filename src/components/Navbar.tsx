@@ -5,7 +5,14 @@ import DropdownMenu from './DropdownMenu';
 
 export default function Navbar() {
     return (
-        <div className='bg-violet-900 flex justify-center'>
+        // <div className="relative">
+        //     <div className="border-b border-black"></div>
+        //     <div className="absolute bottom-0 left-0 right-0 h-2 bg-black transform translate-y-full -z-1 blur"></div>
+        //     <!-- Your content here -->
+
+        // </div>
+
+        <div className=' bg-gradient-to-b from-purple-900 via-purple-900/70 to-purple-900/0 flex justify-center'>
             <DropdownMenu />
             <div className=" hidden sm:block sm:flex justify-between p-4 items-center w-full max-w-5xl">
                 <div className="space-x-4 show">
