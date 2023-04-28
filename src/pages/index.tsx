@@ -10,8 +10,10 @@ export default function Home() {
     <main style={{
       backgroundImage: `url(/bg.svg)`,
       backgroundSize: 'cover',
+      backgroundAttachment: 'fixed',
     }}>
       <Navbar />
+      <Bio />
       <Bio />
     </main >
   )

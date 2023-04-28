@@ -51,3 +51,8 @@ body {
   transform: translateX(-50%) scaleX(1);
   width: 100%;
 }
+
+/* .underline:active::before {
+  transform: translateX(-50%) scaleX(1);
+  width: 100%;
+} */
