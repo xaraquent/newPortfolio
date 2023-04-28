@@ -5,6 +5,7 @@ import DropdownMenu from './DropdownMenu';
 
 export default function Navbar() {
     const [isSmScreen, setIsSmScreen] = useState<boolean>(false);
+    const [isSticky, setIsSticky] = useState<boolean>(false);
 
     useEffect(() => {
         const mediaQuery = window.matchMedia('(max-width: 640px)'); // Change this to your desired breakpoint
@@ -16,14 +17,22 @@ export default function Navbar() {
         return () => mediaQuery.removeListener(handleResize);
     }, []);
 
-    const bgClass = isSmScreen ? 'bg-purple-900' : 'bg-gradient-to-b from-purple-900 via-purple-900/70 to-purple-900/0';
+    useEffect(() => {
+        const handleScroll = () => setIsSticky(window.pageYOffset > 0);
 
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const bgClass = isSmScreen ? 'bg-purple-900' : 'bg-gradient-to-b from-purple-900 via-purple-900/70 to-purple-900/0';
+    const stickyClass = isSticky ? 'fixed top-0 left-0 right-0 bg-purple-900' : '';
 
     return (
-        <div className={`${bgClass} flex justify-center`}>
+        <div className={`${bgClass} ${stickyClass} z-50 flex justify-center transition-all duration-1000 ease-in-out`}>
             <DropdownMenu />
             <div className="hidden sm:block sm:flex justify-between px-8 py-4 items-center w-full max-w-5xl">
-                <div className="space-x-4 show">
+                <div className="space-x-4">
                     <a className="underline" href="#">Home</a>
                     <a className="underline" href="#skills">Skills</a>
                     <a className="underline" href="#projects">Projects</a>
@@ -35,6 +44,5 @@ export default function Navbar() {
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
