@@ -32,19 +32,19 @@ export default function DropdownMenu() {
                     leaveTo="opacity-0 scale-1"
                 >
                     <div className="absolute bg-purple-900 z-10">
-                        <a href="#" className="block py-3 px-8 text-white flex gap-3 hover:bg-violet-500">
+                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl">
                             <HomeIcon />
                             Home
                         </a>
-                        <a href="#" className="block py-3 px-8 text-white flex gap-3 hover:bg-violet-500">
+                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl">
                             <DesignServicesIcon />
                             Skills
                         </a>
-                        <a href="#" className="block py-3 px-8 text-white flex gap-3 hover:bg-violet-500">
+                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl">
                             <FolderSpecialIcon />
                             Projects
                         </a>
-                        <a href="#" className="block py-3 px-8 text-white flex gap-3 hover:bg-violet-500">
+                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl">
                             <ContactPageIcon />
                             Contact
                         </a>
