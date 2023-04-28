@@ -1,20 +1,28 @@
-import React from 'react'
+import { useState, useEffect } from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import DropdownMenu from './DropdownMenu';
 
 export default function Navbar() {
+    const [isSmScreen, setIsSmScreen] = useState<boolean>(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 640px)'); // Change this to your desired breakpoint
+        setIsSmScreen(mediaQuery.matches);
+
+        const handleResize = (event: MediaQueryListEvent) => setIsSmScreen(event.matches);
+        mediaQuery.addListener(handleResize);
+
+        return () => mediaQuery.removeListener(handleResize);
+    }, []);
+
+    const bgClass = isSmScreen ? 'bg-purple-900' : 'bg-gradient-to-b from-purple-900 via-purple-900/70 to-purple-900/0';
+
+
     return (
-        // <div className="relative">
-        //     <div className="border-b border-black"></div>
-        //     <div className="absolute bottom-0 left-0 right-0 h-2 bg-black transform translate-y-full -z-1 blur"></div>
-        //     <!-- Your content here -->
-
-        // </div>
-
-        <div className=' bg-gradient-to-b from-purple-900 via-purple-900/70 to-purple-900/0 flex justify-center'>
+        <div className={`${bgClass} flex justify-center`}>
             <DropdownMenu />
-            <div className=" hidden sm:block sm:flex justify-between p-4 items-center w-full max-w-5xl">
+            <div className="hidden sm:block sm:flex justify-between px-8 py-4 items-center w-full max-w-5xl">
                 <div className="space-x-4 show">
                     <a className="underline" href="#">Home</a>
                     <a className="underline" href="#skills">Skills</a>
@@ -27,5 +35,6 @@ export default function Navbar() {
                 </div>
             </div>
         </div>
+
     )
 }
