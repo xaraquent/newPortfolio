@@ -31,7 +31,7 @@ export default function DropdownMenu() {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-1"
                 >
-                    <div className="absolute bg-violet-900 z-10">
+                    <div className="absolute bg-purple-900 z-10">
                         <a href="#" className="block py-3 px-8 text-white flex gap-3 hover:bg-violet-500">
                             <HomeIcon />
                             Home
