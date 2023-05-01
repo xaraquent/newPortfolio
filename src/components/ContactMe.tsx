@@ -4,10 +4,11 @@ import PhoneCallbackIcon from '@mui/icons-material/PhoneCallback';
 
 interface Props {
     email: string;
-    phone?: string;
+    phone: string;
+    cv: string;
 }
 
-const ContactMe = ({ email, phone }: Props) => {
+const ContactMe = ({ email, phone, cv }: Props) => {
     const handleEmailOrPhoneClick = (link: string) => () => {
         const protocol = link.startsWith('tel:') ? '' : 'mailto:';
         const href = `${protocol}${link}`;
@@ -21,24 +22,22 @@ const ContactMe = ({ email, phone }: Props) => {
                 <div className='flex flex-col items-center'>
                     {email && (
                         <>
-                            <ForwardToInboxIcon onClick={handleEmailOrPhoneClick(email)} style={{ cursor: "pointer" }} className="h-8 w-8" />
-                            <div onClick={handleEmailOrPhoneClick(email)} style={{ cursor: "pointer" }} className='text-sm sm:text-left mt-2 text-slate-300'>
+                            <ForwardToInboxIcon onClick={handleEmailOrPhoneClick(email)} style={{ cursor: "pointer", transition: "transform 0.2s ease-in-out" }} className="h-8 w-8 hover:scale-110 hover:text-purple-200" />
+                            <div onClick={handleEmailOrPhoneClick(email)} style={{ cursor: "pointer" }} className='text-sm sm:text-left mt-2 text-slate-300 hover:text-slate-400'>
                                 {email}
                             </div>
                         </>
                     )}</div>
-
                 <div className='flex flex-col items-center'>
-                    <a href='/simon_cv.pdf' target='_blank' rel='noopener noreferrer' className='bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded'>
+                    <a href={cv} target='_blank' rel='noopener noreferrer' className='bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded'>
                         Download CV
                     </a>
                 </div>
-
                 <div className='flex flex-col items-center'>
                     {phone && (
                         <>
-                            <PhoneCallbackIcon onClick={handleEmailOrPhoneClick(`tel:${phone}`)} style={{ cursor: "pointer" }} className="h-8 w-8" />
-                            <div onClick={handleEmailOrPhoneClick(`tel:${phone}`)} style={{ cursor: "pointer" }} className='text-sm mt-2 text-slate-300'>
+                            <PhoneCallbackIcon onClick={handleEmailOrPhoneClick(`tel:${phone}`)} style={{ cursor: "pointer", transition: "transform 0.2s ease-in-out" }} className="h-8 w-8 hover:scale-110 hover:text-purple-200" />
+                            <div onClick={handleEmailOrPhoneClick(`tel:${phone}`)} style={{ cursor: "pointer" }} className='text-sm mt-2 text-slate-300 hover:text-slate-400'>
                                 {phone}
                             </div>
                         </>
