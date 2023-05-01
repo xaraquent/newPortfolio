@@ -1,4 +1,5 @@
 import React from 'react'
+import ContactMe from './ContactMe'
 
 
 export default function Bio() {
@@ -12,6 +13,7 @@ export default function Bio() {
                     </h1>
                     <p className='text-sm text-center sm:text-left mt-2 text-slate-300'> I love to create solutions for others and to see my ideas come to life. I solve new challenges best through collaboration and good communication, and I live by the saying "teamwork makes the dream work".</p>
                 </div>
+                <ContactMe email="simon.michael.te15d@gmail.com" phone='073-323 56 79' />
             </div>
         </div>
     )
