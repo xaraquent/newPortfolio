@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Bio from '@/components/Bio'
 import Navbar from '@/components/Navbar'
+import Skills from '@/components/SkillSlider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,7 +15,7 @@ export default function Home() {
     }}>
       <Navbar />
       <Bio />
-      <Bio />
+      <Skills />
     </main >
   )
 }
