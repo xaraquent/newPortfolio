@@ -17,7 +17,7 @@ const ContactMe = ({ email, phone, cv }: Props) => {
 
     return (
         <div className='flex flex-col sm:col-span-2 md:col-span-3 bg-purple-900/40 rounded-3xl p-4'>
-            <h1 className='text-xl text-center sm:text-3xl md:text-4xl font-semibold p'>Contact Me</h1>
+            <h1 className='text-xl text-center sm:text-3xl md:text-4xl font-semibold'>Contact Me</h1>
             <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 justify-center items-center mt-2 sm:mt-4'>
                 <div className='flex flex-col items-center'>
                     {email && (
