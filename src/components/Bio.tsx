@@ -1,5 +1,6 @@
 import React from 'react'
 import ContactMe from './ContactMe'
+import SkillSlider from './SkillSlider'
 
 
 export default function Bio() {
