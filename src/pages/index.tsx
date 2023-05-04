@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Bio from '@/components/Bio'
 import Navbar from '@/components/Navbar'
@@ -16,6 +15,7 @@ export default function Home() {
       <Navbar />
       <Bio />
       <SkillSlider />
+
     </main >
   )
 }

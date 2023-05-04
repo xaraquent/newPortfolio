@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import Image from 'next/image';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import SwipeTwoToneIcon from "@mui/icons-material/SwipeTwoTone";
@@ -22,10 +23,6 @@ const icons: Icon[] = [
 
 export default function SkillSlider(): JSX.Element {
     const elRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        console.log(elRef.current?.clientWidth);
-    }, [elRef.current]);
 
     const [ref] = useKeenSlider<HTMLDivElement>({
         loop: true,
@@ -71,13 +68,13 @@ export default function SkillSlider(): JSX.Element {
             <div className='sm:col-span-2 md:col-span-3 bg-purple-900/40 rounded-3xl p-4' ref={elRef}>
                 <h1 className='text-xl text-center sm:text-3xl md:text-4xl font-semibold mb-4'>Skills</h1>
                 <div ref={ref} className="keen-slider">
-                    <div className=' absolute flex flex-col gap-2 items-center justify-center z-10 h-full w-full duration-200 opacity-0 hover:opacity-100 transition-opacity hover:animate-fade  hover:animate-once  hover:animate-ease-in-out  hover:animate-reverse hover:animate-duration-[1000ms] hover:animate-delay-[1000ms]'>
+                    <div className=' absolute flex flex-col gap-2 items-center justify-center z-10 h-full w-full duration-200 opacity-0 hover:opacity-100'>
                         <p className='text-xl'>Swipe left or right</p>
                         <SwipeTwoToneIcon fontSize='large' />
                     </div>
                     {icons.map((icon: Icon, index: number) => (
                         <div key={index} className="keen-slider__slide h-24 flex flex-col gap-2">
-                            <img src={icon.src} alt={icon.alt} className="flex-1 h-14 object-contain" />
+                            <Image src={icon.src} alt={icon.alt} className="flex-1 h-14 object-contain" />
                             <p className='text-xl text-center'>{icon.alt}</p>
                         </div>
                     ))}
