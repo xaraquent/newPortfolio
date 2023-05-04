@@ -74,7 +74,7 @@ export default function SkillSlider(): JSX.Element {
                     </div>
                     {icons.map((icon: Icon, index: number) => (
                         <div key={index} className="keen-slider__slide h-24 flex flex-col gap-2">
-                            <Image src={icon.src} alt={icon.alt} className="flex-1 h-14 object-contain" />
+                            <Image src={icon.src} alt={icon.alt} width={500} height={500} className="flex-1 h-14 object-contain" />
                             <p className='text-xl text-center'>{icon.alt}</p>
                         </div>
                     ))}
