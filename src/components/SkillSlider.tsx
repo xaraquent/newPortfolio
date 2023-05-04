@@ -1,16 +1,9 @@
-import React, { useRef, useEffect } from 'react';
-import Image from 'next/image';
+import React, { useRef, useEffect, useState } from 'react';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import SwipeTwoToneIcon from "@mui/icons-material/SwipeTwoTone";
 
-
-interface Icon {
-    src: string;
-    alt: string;
-}
-
-const icons: Icon[] = [
+const icons = [
     { src: '/next.js.svg', alt: 'Next.js' },
     { src: '/node.js.svg', alt: 'Node.js' },
     { src: '/typescript.svg', alt: 'TypeScript' },
@@ -21,10 +14,11 @@ const icons: Icon[] = [
     { src: '/git.svg', alt: 'Git' },
 ];
 
-export default function SkillSlider(): JSX.Element {
+export default function SkillSlider() {
     const elRef = useRef<HTMLDivElement>(null);
+    const [loading, setLoading] = useState(true);
 
-    const [ref] = useKeenSlider<HTMLDivElement>({
+    const [sliderRef] = useKeenSlider<HTMLDivElement>({
         loop: true,
         mode: 'free-snap',
         slides: {
@@ -63,22 +57,54 @@ export default function SkillSlider(): JSX.Element {
         ]
     );
 
+    useEffect(() => {
+        let loadedCount = 0;
+        const handleLoad = () => {
+            loadedCount++;
+            if (loadedCount === icons.length) {
+                setLoading(false);
+            }
+        };
+        icons.forEach((icon) => {
+            const img = new Image();
+            img.src = icon.src;
+            img.onload = handleLoad;
+        });
+
+        const el = elRef.current;
+        if (el) {
+            const resizeListener = () => {
+                sliderRef.resize();
+            };
+            window.addEventListener('resize', resizeListener);
+
+            return () => {
+                window.removeEventListener('resize', resizeListener);
+            };
+        }
+    }, [sliderRef]);
+
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-8 py-4 max-w-5xl mx-auto'>
             <div className='sm:col-span-2 md:col-span-3 bg-purple-900/40 rounded-3xl p-4' ref={elRef}>
                 <h1 className='text-xl text-center sm:text-3xl md:text-4xl font-semibold mb-4'>Skills</h1>
-                <div ref={ref} className="keen-slider">
-                    <div className=' absolute flex flex-col gap-2 items-center justify-center z-10 h-full w-full duration-200 opacity-0 hover:opacity-100'>
-                        <p className='text-xl'>Swipe left or right</p>
-                        <SwipeTwoToneIcon fontSize='large' />
-                    </div>
-                    {icons.map((icon: Icon, index: number) => (
-                        <div key={index} className="keen-slider__slide h-24 flex flex-col gap-2">
-                            <Image src={icon.src} alt={icon.alt} width={500} height={500} className="flex-1 h-14 object-contain" />
-                            <p className='text-xl text-center'>{icon.alt}</p>
+
+                {loading ? (
+                    <div>Loading...</div>
+                ) : (
+                    <div ref={sliderRef} className="keen-slider">
+                        <div className=' absolute flex flex-col gap-2 items-center justify-center z-10 h-full w-full duration-200 opacity-0 hover:opacity-100'>
+                            <p className='text-xl'>Swipe left or right</p>
+                            <SwipeTwoToneIcon fontSize='large' />
                         </div>
-                    ))}
-                </div>
+                        {icons.map((icon, index) => (
+                            <div key={index} className="keen-slider__slide h-24 flex flex-col gap-2">
+                                <img src={icon.src} alt={icon.alt} className="flex-1 h-14 object-contain" />
+                                <p className='text-xl text-center'>{icon.alt}</p>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );
