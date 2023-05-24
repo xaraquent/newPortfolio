@@ -22,19 +22,19 @@ export default function SkillSlider() {
         mode: 'free-snap',
         breakpoints: {
             "(min-width: 300px)": {
-                slides: { perView: 2, spacing: 0 },
+                slides: { perView: 2 },
             },
             "(min-width: 400px)": {
-                slides: { perView: 3, spacing: 0 },
+                slides: { perView: 3 },
             },
             "(min-width: 520px)": {
-                slides: { perView: 4, spacing: 0 },
+                slides: { perView: 4 },
             },
             "(min-width: 640px)": {
-                slides: { perView: 5, spacing: 0 },
+                slides: { perView: 5 },
             },
             "(min-width: 800px)": {
-                slides: { perView: 6, spacing: 0 },
+                slides: { perView: 6 },
             },
             "(min-width: 1000px)": {
                 slides: { perView: 7 },
