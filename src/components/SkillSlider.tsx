@@ -21,9 +21,27 @@ export default function SkillSlider() {
     const [sliderRef] = useKeenSlider<HTMLDivElement>({
         loop: true,
         mode: 'free-snap',
-        slides: {
-            perView: () => Math.ceil(elRef.current?.clientWidth! / 190),
+        breakpoints: {
+            "(min-width: 300px)": {
+                slides: { perView: 2, spacing: 0 },
+            },
+            "(min-width: 400px)": {
+                slides: { perView: 3, spacing: 0 },
+            },
+            "(min-width: 520px)": {
+                slides: { perView: 4, spacing: 0 },
+            },
+            "(min-width: 640px)": {
+                slides: { perView: 5, spacing: 0 },
+            },
+            "(min-width: 800px)": {
+                slides: { perView: 6, spacing: 0 },
+            },
+            "(min-width: 1000px)": {
+                slides: { perView: 7 },
+            },
         },
+        slides: { perView: 1 },
     },
         [
             (slider) => {
@@ -70,23 +88,11 @@ export default function SkillSlider() {
             img.src = icon.src;
             img.onload = handleLoad;
         });
-
-        const el = elRef.current;
-        if (el) {
-            const resizeListener = () => {
-                sliderRef.resize();
-            };
-            window.addEventListener('resize', resizeListener);
-
-            return () => {
-                window.removeEventListener('resize', resizeListener);
-            };
-        }
     }, [sliderRef]);
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-8 py-4 max-w-5xl mx-auto'>
-            <div className='sm:col-span-2 md:col-span-3 bg-purple-900/40 rounded-3xl p-4' ref={elRef}>
+            <div className='sm:col-span-2 md:col-span-3 bg-purple-900/40 rounded-3xl p-4'>
                 <h1 className='text-xl text-center sm:text-3xl md:text-4xl font-semibold mb-4'>Skills</h1>
 
                 {loading ? (
