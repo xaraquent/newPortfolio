@@ -15,7 +15,6 @@ const icons = [
 ];
 
 export default function SkillSlider() {
-    const elRef = useRef<HTMLDivElement>(null);
     const [loading, setLoading] = useState(true);
 
     const [sliderRef] = useKeenSlider<HTMLDivElement>({
