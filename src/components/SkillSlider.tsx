@@ -12,6 +12,7 @@ const icons = [
     { src: '/react.svg', alt: 'React' },
     { src: '/sass.svg', alt: 'Sass' },
     { src: '/git.svg', alt: 'Git' },
+    { src: '/redux.svg', alt: 'Redux' },
 ];
 
 export default function SkillSlider() {
