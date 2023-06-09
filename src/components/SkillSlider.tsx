@@ -4,8 +4,8 @@ import { useKeenSlider } from 'keen-slider/react';
 import SwipeTwoToneIcon from "@mui/icons-material/SwipeTwoTone";
 
 const icons = [
-    { src: '/next.js.svg', alt: 'Next.js' },
-    { src: '/node.js.svg', alt: 'Node.js' },
+    { src: '/next.js.svg', alt: 'Next' },
+    { src: '/node.js.svg', alt: 'Node' },
     { src: '/typescript.svg', alt: 'TypeScript' },
     { src: '/tailwind.svg', alt: 'Tailwind' },
     { src: '/mongodb.svg', alt: 'MongoDB' },
