@@ -52,7 +52,7 @@ body {
   width: 100%;
 }
 
-/* .underline:active::before {
+.underline:focus:before {
   transform: translateX(-50%) scaleX(1);
   width: 100%;
-} */
+}

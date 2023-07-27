@@ -31,20 +31,20 @@ export default function DropdownMenu() {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-1"
                 >
-                    <div className="absolute bg-purple-900 z-10">
-                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl">
+                    <div className="absolute bg-purple-900 bg-opacity-70 z-10 rounded-br-xl">
+                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl focus:bg-violet-500">
                             <HomeIcon />
                             Home
                         </a>
-                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl">
+                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl focus:bg-violet-500">
                             <DesignServicesIcon />
                             Skills
                         </a>
-                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl">
+                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl focus:bg-violet-500">
                             <FolderSpecialIcon />
                             Projects
                         </a>
-                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl">
+                        <a href="#" className="block py-3 px-6 m-2 text-white flex gap-3 hover:bg-violet-500 transition duration-300 rounded-xl focus:bg-violet-500">
                             <ContactPageIcon />
                             Contact
                         </a>
