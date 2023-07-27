@@ -22,7 +22,7 @@ const ContactMe = ({ email, phone, cv }: Props) => {
                 <div className='flex flex-col items-center'>
                     {email && (
                         <>
-                            <ForwardToInboxIcon onClick={handleEmailOrPhoneClick(email)} style={{ cursor: "pointer", transition: "transform 0.2s ease-in-out" }} className="h-8 w-8 hover:scale-110 hover:text-purple-200" />
+                            <ForwardToInboxIcon onClick={handleEmailOrPhoneClick(email)} style={{ cursor: "pointer", transition: "transform 0.2s ease-in-out" }} className="h-8 w-8 hover:text-purple-200" />
                             <div onClick={handleEmailOrPhoneClick(email)} style={{ cursor: "pointer" }} className='text-sm sm:text-left mt-2 text-slate-300 hover:text-slate-400'>
                                 {email}
                             </div>
@@ -36,7 +36,7 @@ const ContactMe = ({ email, phone, cv }: Props) => {
                 <div className='flex flex-col items-center'>
                     {phone && (
                         <>
-                            <PhoneCallbackIcon onClick={handleEmailOrPhoneClick(`tel:${phone}`)} style={{ cursor: "pointer", transition: "transform 0.2s ease-in-out" }} className="h-8 w-8 hover:scale-110 hover:text-purple-200" />
+                            <PhoneCallbackIcon onClick={handleEmailOrPhoneClick(`tel:${phone}`)} style={{ cursor: "pointer", transition: "transform 0.2s ease-in-out" }} className="h-8 w-8 hover:text-purple-200" />
                             <div onClick={handleEmailOrPhoneClick(`tel:${phone}`)} style={{ cursor: "pointer" }} className='text-sm mt-2 text-slate-300 hover:text-slate-400'>
                                 {phone}
                             </div>
